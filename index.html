@@ -1,466 +1,468 @@
-﻿<!DOCTYPE html>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Port Folio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mahesh Chitturi — Full Stack .NET &amp; Integration Engineer</title>
+<meta name="description" content="Full Stack Software Engineer specializing in .NET Core, Angular, Azure, and third-party system integrations (Stripe, PayPal, Zoho, Xero)." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e13;
+    --panel:#111721;
+    --panel-2:#161d29;
+    --line:#232d3a;
+    --text:#e9edf3;
+    --muted:#8b97a6;
+    --accent:#38e0c6;
+    --accent-dim:#1f5d55;
+    --signal:#ffb454;
+    --radius:10px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;} }
 
-    <link href="animate.css" rel="stylesheet" />
-    <link href="aos.css" rel="stylesheet" />
-    <link href="magnific-popup.css" rel="stylesheet" />
-    <link href="owl.carousel.min.css" rel="stylesheet" />
-    <link href="owl.theme.default.min.css" rel="stylesheet" />
-    <link href="Style1.css" rel="stylesheet" />
-    <link href="Style2.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(56,224,198,0.06), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(255,180,84,0.04), transparent 40%);
+    pointer-events:none; z-index:0;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; font-weight:600; letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  section{position:relative; z-index:1;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); display:flex; align-items:center; gap:8px; margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent);}
 
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,14,19,0.85); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{max-width:var(--maxw); margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+  .brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; display:flex; align-items:center; gap:8px;}
+  .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); animation:pulse 2s infinite;}
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:.4;} }
+  .navlinks{display:flex; gap:32px; font-size:14px; color:var(--muted);}
+  .navlinks a:hover{color:var(--text);}
+  .navcta{
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    border:1px solid var(--accent-dim); color:var(--accent);
+    padding:8px 16px; border-radius:6px; transition:.2s;
+  }
+  .navcta:hover{background:var(--accent); color:#04110e;}
+  .navtoggle{display:none; background:none; border:none; color:var(--text); font-size:22px; cursor:pointer;}
+
+  @media (max-width:820px){
+    .navlinks{position:fixed; top:64px; left:0; right:0; background:var(--panel); flex-direction:column; padding:20px 24px; gap:18px; border-bottom:1px solid var(--line); transform:translateY(-140%); transition:transform .25s ease;}
+    .navlinks.open{transform:translateY(0);}
+    .navtoggle{display:block;}
+  }
+
+  /* HERO */
+  .hero{padding:90px 0 70px;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(34px,5vw,52px); line-height:1.08; margin-bottom:18px;}
+  .hero h1 .accent{color:var(--accent);}
+  .hero p.lead{color:var(--muted); font-size:17px; max-width:46ch; margin-bottom:30px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:14px;
+    padding:12px 22px; border-radius:6px; display:inline-flex; align-items:center; gap:8px;
+    transition:.2s; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent); color:#04110e; font-weight:500;}
+  .btn-primary:hover{background:#5aeada; transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap;}
+  .hero-meta div{border-left:2px solid var(--accent-dim); padding-left:12px;}
+  .hero-meta strong{display:block; font-family:'Space Grotesk',sans-serif; font-size:22px;}
+  .hero-meta span{color:var(--muted); font-size:12px; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.06em;}
+
+  /* HERO DIAGRAM */
+  .diagram-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; position:relative; overflow:hidden;
+  }
+  .diagram-card .cardhead{display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em;}
+  .diagram-card .cardhead .live{color:var(--accent); display:flex; align-items:center; gap:6px;}
+  .diagram-card .cardhead .live::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulse 1.4s infinite;}
+  svg text{font-family:'JetBrains Mono',monospace;}
+  .flow-line{stroke-dasharray:6 6; animation:dash 1.4s linear infinite;}
+  @keyframes dash{ to{stroke-dashoffset:-24;} }
+  .pulse-dot{animation:pulse 1.8s infinite;}
+
+  /* ABOUT */
+  .about{padding:70px 0; border-top:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:start;}
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  .about-photo{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:var(--panel);}
+  .about-photo img{width:100%; height:auto; filter:grayscale(15%) contrast(1.02);}
+  .about h2{font-size:30px; margin-bottom:18px;}
+  .about p{color:var(--muted); margin-bottom:16px; max-width:62ch;}
+  .info-list{margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; font-size:14px;}
+  .info-list div span:first-child{color:var(--muted); display:block; font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:2px;}
+  .info-list a{color:var(--accent);}
+
+  /* SKILLS */
+  .skills{padding:70px 0; border-top:1px solid var(--line);}
+  .skills-head{margin-bottom:40px; max-width:60ch;}
+  .skills-head h2{font-size:30px; margin-bottom:12px;}
+  .skills-head p{color:var(--muted);}
+  .skill-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;}
+  .skill-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px;}
+  .skill-card h3{font-size:14px; font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:16px;}
+  .skill-row{display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--line); font-size:14px;}
+  .skill-row:last-child{border-bottom:none;}
+  .dots{display:flex; gap:4px;}
+  .dots span{width:6px; height:6px; border-radius:50%; background:var(--line);}
+  .dots span.filled{background:var(--accent);}
+
+  /* PROJECTS */
+  .projects{padding:70px 0; border-top:1px solid var(--line);}
+  .projects-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px;}
+  .projects-head h2{font-size:30px;}
+  .filter-tabs{display:flex; gap:8px; flex-wrap:wrap;}
+  .filter-tabs button{
+    font-family:'JetBrains Mono',monospace; font-size:12px; padding:7px 14px; border-radius:20px;
+    border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; transition:.2s;
+  }
+  .filter-tabs button.active, .filter-tabs button:hover{border-color:var(--accent); color:var(--accent);}
+  .project-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
+  .project-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .2s, border-color .2s;
+  }
+  .project-card:hover{transform:translateY(-3px); border-color:var(--accent-dim);}
+  .project-media{height:170px; background:var(--panel-2); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .project-media img{width:100%; height:100%; object-fit:cover;}
+  .project-media.code{padding:16px; align-items:flex-start; justify-content:flex-start;}
+  .project-media.code pre{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--accent); line-height:1.7; white-space:pre-wrap; opacity:.9;}
+  .tag-float{position:absolute; top:12px; left:12px; background:rgba(10,14,19,0.85); border:1px solid var(--accent-dim); color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:.06em;}
+  .project-body{padding:20px;}
+  .project-body h3{font-size:16px; margin-bottom:8px;}
+  .project-body p{color:var(--muted); font-size:13.5px;}
+
+  /* CONTACT */
+  .contact{padding:70px 0 90px; border-top:1px solid var(--line);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media (max-width:820px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact h2{font-size:30px; margin-bottom:14px;}
+  .contact > .wrap > p{color:var(--muted); max-width:56ch; margin-bottom:36px;}
+  .contact-list a, .contact-list div{
+    display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .contact-list .ic{width:34px; height:34px; border-radius:8px; background:var(--panel); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--accent); flex-shrink:0;}
+  .contact-list span.label{color:var(--muted); display:block; font-family:'JetBrains Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;}
+  form.contact-form{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:24px; display:grid; gap:14px;}
+  form.contact-form input, form.contact-form textarea{
+    width:100%; background:var(--panel-2); border:1px solid var(--line); border-radius:6px; padding:12px 14px;
+    color:var(--text); font-family:'Inter',sans-serif; font-size:14px;
+  }
+  form.contact-form input:focus, form.contact-form textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
+  form.contact-form button{
+    font-family:'JetBrains Mono',monospace; background:var(--accent); color:#04110e; border:none; padding:13px; border-radius:6px; cursor:pointer; font-size:14px; font-weight:500;
+  }
+  form.contact-form button:hover{background:#5aeada;}
+
+  footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; color:var(--muted); font-size:12.5px; font-family:'JetBrains Mono',monospace;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body>
 
+<header>
+  <nav class="wrap" style="padding-left:0;padding-right:0;">
+    <a href="#home" class="brand"><span class="dot"></span>Mahesh Chitturi</a>
+    <button class="navtoggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <div class="navlinks" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="navcta" style="display:none;" id="navCta">Hire Me</a>
+  </nav>
+</header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
-        <div class="container ps--3">
-            <a class="navbar-brand" href="#" style="padding-left:-150px;">Full Stack Software Developer<span>.</span></a>
-            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-            </button>
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Available for new projects</div>
+      <h1>Full Stack Engineer building<br><span class="accent">connected systems</span>, not just apps.</h1>
+      <p class="lead">3.5+ years designing and shipping full-stack solutions with .NET Core, Angular, and Azure — with a focus on wiring platforms together: payments, accounting, and CRM data flowing in real time.</p>
+      <div class="hero-actions">
+        <a href="mailto:maheshchitturi222@gmail.com" class="btn btn-primary">Hire Me →</a>
+        <a href="Mahesh%20Chitturi%20CV.pdf" download class="btn btn-ghost">Download CV</a>
+        <a href="tel:+919347804678" class="btn btn-ghost">☎ +91 93478 04678</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong id="statProjects">5+</strong><span>Projects Shipped</span></div>
+        <div><strong>3.5+</strong><span>Years Experience</span></div>
+        <div><strong>4</strong><span>Live Integrations</span></div>
+      </div>
+    </div>
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav nav ml-auto">
-                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-                    <li class="nav-item"><a href="#services-section" class="nav-link"><span>Skills</span></a></li>
+    <div class="diagram-card reveal">
+      <div class="cardhead"><span>integration_flow.svg</span><span class="live">syncing</span></div>
+      <svg viewBox="0 0 320 260" width="100%" height="260" fill="none">
+        <!-- center node -->
+        <rect x="118" y="105" width="84" height="50" rx="8" fill="#161d29" stroke="#38e0c6" stroke-width="1.5"/>
+        <text x="160" y="127" text-anchor="middle" fill="#e9edf3" font-size="10">CRM</text>
+        <text x="160" y="141" text-anchor="middle" fill="#8b97a6" font-size="8">.NET Core</text>
 
-                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact  Me</span></a></li>
+        <!-- Stripe -->
+        <rect x="10" y="20" width="80" height="34" rx="8" fill="#111721" stroke="#232d3a"/>
+        <text x="50" y="41" text-anchor="middle" fill="#e9edf3" font-size="10">Stripe</text>
+        <path class="flow-line" d="M90 40 C120 40 130 90 150 105" stroke="#38e0c6" stroke-width="1.5"/>
+        <circle class="pulse-dot" cx="118" cy="66" r="2.5" fill="#38e0c6"/>
 
+        <!-- PayPal -->
+        <rect x="230" y="20" width="80" height="34" rx="8" fill="#111721" stroke="#232d3a"/>
+        <text x="270" y="41" text-anchor="middle" fill="#e9edf3" font-size="10">PayPal</text>
+        <path class="flow-line" d="M230 40 C200 40 190 90 172 105" stroke="#38e0c6" stroke-width="1.5"/>
+        <circle class="pulse-dot" cx="202" cy="66" r="2.5" fill="#38e0c6"/>
 
-                </ul>
-            </div>
+        <!-- Zoho -->
+        <rect x="10" y="205" width="80" height="34" rx="8" fill="#111721" stroke="#232d3a"/>
+        <text x="50" y="226" text-anchor="middle" fill="#e9edf3" font-size="10">Zoho Books</text>
+        <path class="flow-line" d="M90 222 C120 222 130 175 150 158" stroke="#ffb454" stroke-width="1.5"/>
+        <circle class="pulse-dot" cx="118" cy="196" r="2.5" fill="#ffb454"/>
+
+        <!-- Xero -->
+        <rect x="230" y="205" width="80" height="34" rx="8" fill="#111721" stroke="#232d3a"/>
+        <text x="270" y="226" text-anchor="middle" fill="#e9edf3" font-size="10">Xero</text>
+        <path class="flow-line" d="M230 222 C200 222 190 175 172 158" stroke="#ffb454" stroke-width="1.5"/>
+        <circle class="pulse-dot" cx="202" cy="196" r="2.5" fill="#ffb454"/>
+
+        <!-- Azure top -->
+        <rect x="120" y="10" width="80" height="30" rx="8" fill="#111721" stroke="#232d3a"/>
+        <text x="160" y="29" text-anchor="middle" fill="#e9edf3" font-size="10">Azure</text>
+        <path class="flow-line" d="M160 40 L160 105" stroke="#38e0c6" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="reveal about-photo">
+      <img src="AnimeDeveloper.jpg" alt="Mahesh Chitturi" onerror="this.closest('.about-photo').style.display='none'">
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <h2>I connect the systems businesses already run on.</h2>
+      <p>I'm a full-stack software engineer with 3.5+ years of experience building and integrating business applications — from internal enterprise portals for a Fortune-scale energy client to CRM platforms wired directly into payment and accounting systems.</p>
+      <p>My core stack is .NET Core, Angular, and Azure on the backend/frontend, paired with hands-on experience integrating REST APIs and OAuth flows for Stripe, PayPal, Zoho Books, and Xero — the kind of work that turns disconnected tools into one working system.</p>
+      <div class="info-list">
+        <div><span>Name</span>Mahesh Chitturi</div>
+        <div><span>Location</span>East Godavari, AP</div>
+        <div><span>Email</span><a href="mailto:maheshchitturi222@gmail.com">maheshchitturi222@gmail.com</a></div>
+        <div><span>Phone</span><a href="tel:+919347804678">+91 93478 04678</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="wrap">
+    <div class="skills-head reveal">
+      <div class="eyebrow">Skills</div>
+      <h2>What I build with</h2>
+      <p>Full-stack development with a specific edge in wiring third-party systems together — payments, accounting, and CRM data, kept in sync.</p>
+    </div>
+    <div class="skill-groups" id="skillGroups"></div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <div class="wrap">
+    <div class="projects-head reveal">
+      <div>
+        <div class="eyebrow">Work</div>
+        <h2>Selected projects</h2>
+      </div>
+      <div class="filter-tabs" id="filterTabs"></div>
+    </div>
+    <div class="project-grid" id="projectGrid"></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's build something.</h2>
+      <p>Open to full-stack and integration engagements — from a single API connector to a full CRM-to-backoffice pipeline.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal contact-list">
+        <a href="mailto:maheshchitturi222@gmail.com">
+          <span class="ic">✉</span>
+          <span><span class="label">Email</span>maheshchitturi222@gmail.com</span>
+        </a>
+        <a href="tel:+919347804678">
+          <span class="ic">☎</span>
+          <span><span class="label">Phone</span>+91 93478 04678</span>
+        </a>
+        <div>
+          <span class="ic">⚲</span>
+          <span><span class="label">Location</span>East Godavari, Andhra Pradesh</span>
         </div>
-    </nav>
-    <section id="home-section" class="hero" style="background-color:#b1e2ea">
-        <div class="home-slider owl-carousel">
-            <div class="slider-item">
-                <div class="overlay"></div>
-                <div class="container-fluid px-md-0">
-                    <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-                        <div class="one-third order-md-last img"
-                             style="background-image: url(Myimage11.png);
-                background-position: center bottom;
-                background-size: 50%; 
-                background-repeat: no-repeat;">
-                            <img src="Myimage11.png" />
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <input type="text" id="cName" placeholder="Your Name" required>
+        <input type="email" id="cEmail" placeholder="Your Email" required>
+        <input type="text" id="cSubject" placeholder="Subject" required>
+        <textarea id="cMessage" rows="5" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
+<footer>© <span id="year"></span> Mahesh Chitturi — Full Stack Engineer, .NET · Angular · Azure</footer>
 
+<script>
+/* ---------- DATA (edit here, layout stays untouched) ---------- */
+const SKILL_GROUPS = [
+  { name:"Core Development", items:[
+    {n:"C# / .NET Core", lvl:5},
+    {n:"ASP.NET", lvl:4},
+    {n:"Angular", lvl:4},
+    {n:"JavaScript", lvl:4},
+  ]},
+  { name:"Cloud & Data", items:[
+    {n:"Azure", lvl:4},
+    {n:"SQL Server", lvl:5},
+    {n:"Java / JDBC", lvl:4},
+  ]},
+  { name:"Integrations & APIs", items:[
+    {n:"REST APIs / OAuth 2.0", lvl:5},
+    {n:"Stripe", lvl:4},
+    {n:"PayPal", lvl:4},
+    {n:"Zoho Books / Xero", lvl:4},
+  ]},
+  { name:"Frontend", items:[
+    {n:"HTML5 / CSS3", lvl:5},
+    {n:"Bootstrap", lvl:4},
+  ]},
+];
 
-                            <div class="overlay"></div>
-                            <div class="overlay-1"></div>
-                        </div>
-                        <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
-                                <span class="subheading">Hello! This is Mahesh</span>
-                                <h1 class="mb-4 mt-3">Full  Stack <span></span> Software   Developer</h1>
-                                <p>
-                                    <a  href="mailto:maheshchitturi222@gmail.com"class="btn btn-primary">Hire me</a> 
-                                    <a href="Mahesh Chitturi CV.pdf" download="Mahesh Chitturi CV.pdf"  class="btn btn-primary btn-outline-primary">Download CV</a>
+const PROJECTS = [
+  { title:"CRM Payment Gateway Sync", tag:"Integration", type:"code",
+    desc:"Real-time integration layer connecting the CRM to Stripe and PayPal — handling OAuth, webhooks, and transaction status sync back to customer records.",
+    code:"POST /webhooks/stripe\n→ verify signature\n→ map payment → CRM record\n→ update status: paid\n\nPOST /webhooks/paypal\n→ IPN validation\n→ sync invoice state" },
+  { title:"Accounting Sync Engine", tag:"Integration", type:"code",
+    desc:"Automated two-way sync between the CRM and Zoho Books / Xero — invoices, payments, and customer records kept consistent across systems.",
+    code:"GET /zoho/invoices\n→ transform schema\n→ POST /crm/invoices\n\nGET /xero/contacts\n→ dedupe + merge\n→ upsert CRM contact" },
+  { title:"Tender Management System", tag:"Enterprise", type:"image", img:"tmSpROJECT4.jpg",
+    desc:"TMS portal facilitating the tender approval process on the Government e-Marketplace (GeM) for CPCL." },
+  { title:"Electrical E-Approval", tag:"Enterprise", type:"image", img:"PEttyProject3.jpg",
+    desc:"Emergency approval workflow for urgent, unplanned procurement of goods and components." },
+  { title:"Daily Meeting Digitalization", tag:"Enterprise", type:"image", img:"PRoject1Dailymeeting.jpg",
+    desc:"Digitized daily production-update tracking, replacing manual reporting across the plant." },
+  { title:"Workshop Asset Tracker", tag:"Enterprise", type:"image", img:"WorkShopProject5.jpg",
+    desc:"Tracks motors, bearings, and fans — routing faulty components to the correct workshop and in-charge automatically." },
+  { title:"Electrical Service Hub", tag:"Enterprise", type:"image", img:"WalkieTalkieProject5.jpg",
+    desc:"Central dashboard for electrical service assets — walkie-talkies, AC units, telephones — across the facility." },
+];
 
-                                                                                 
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+/* ---------- RENDER ---------- */
+function dots(lvl){
+  let s='<div class="dots">';
+  for(let i=1;i<=5;i++) s+=`<span class="${i<=lvl?'filled':''}"></span>`;
+  return s+'</div>';
+}
+document.getElementById('skillGroups').innerHTML = SKILL_GROUPS.map(g=>`
+  <div class="skill-card">
+    <h3>${g.name}</h3>
+    ${g.items.map(i=>`<div class="skill-row"><span>${i.n}</span>${dots(i.lvl)}</div>`).join('')}
+  </div>`).join('');
 
-       
-        </div>
-    </section>
+const tags = ["All", ...new Set(PROJECTS.map(p=>p.tag))];
+document.getElementById('filterTabs').innerHTML = tags.map((t,idx)=>
+  `<button class="${idx===0?'active':''}" data-tag="${t}">${t}</button>`).join('');
 
-    <section class="ftco-counter img bg-light" id="section-counter" style="background-color:#b1e2ea">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 d-flex">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="fas fa-project-diagram"></span>
-                        </div>
-                        <div class="text">
-                            <strong class="number">5</strong>
-                            <span>Project Completed</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 d-flex">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="fa fa-map-marker"></span>
-                        </div>
-                        <div class="text">
-                            <strong class="number" typeof="text"><a href="https://www.google.com/maps/place/Chennai+Petroleum+Corporation+Limited+Corporate+Office/@13.0423485,80.2472547,17z/data=!3m1!4b1!4m6!3m5!1s0x3a526646647b2bf5:0x97464d87a58a2928!8m2!3d13.0423485!4d80.2472547!16s%2Fg%2F1td_3lxc?authuser=0&hl=en&entry=ttu&g_ep=EgoyMDI0MTAwMS4wIKXMDSoASAFQAw%3D%3D"> CPCL </a>, Chennai</strong>
-                            <span>Current Client</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18 d-flex">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="fas fa-briefcase"></span>
-                        </div>
-                        <div class="text">
-                            <strong class="number" typeof="text">3</strong>
-                            <span>Years experienced</span>
-                        </div>
-                    </div>
-                </div>
+function renderProjects(filter){
+  const list = filter==='All' ? PROJECTS : PROJECTS.filter(p=>p.tag===filter);
+  document.getElementById('projectGrid').innerHTML = list.map(p=>`
+    <div class="project-card reveal in">
+      <div class="project-media ${p.type==='code'?'code':''}">
+        <span class="tag-float">${p.tag}</span>
+        ${p.type==='code'
+          ? `<pre>${p.code}</pre>`
+          : `<img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.parentElement.style.background='linear-gradient(135deg,#161d29,#111721)'; this.remove();">`}
+      </div>
+      <div class="project-body">
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+      </div>
+    </div>`).join('');
+}
+renderProjects('All');
 
+document.getElementById('filterTabs').addEventListener('click', e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  document.querySelectorAll('.filter-tabs button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderProjects(e.target.dataset.tag);
+});
 
-            </div>
-        </div>
-    </section>
+/* ---------- NAV ---------- */
+document.getElementById('navToggle').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+}));
 
-    <section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
-        <div class="container">
-            <div class="row d-flex no-gutters">
-                <div class="col-md-6 col-lg-5 d-flex">
-                    <div class="img-about img d-flex align-items-stretch">
-                        <div class="overlay"></div>
-                        <div class="img d-flex align-self-stretch align-items-center" style="background-image: url(AnimeDeveloper.jpg);">
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-7 pl-md-4 pl-lg-5 py-5">
-                    <div class="py-md-5">
-                        <div class="row justify-content-start pb-3">
-                            <div class="col-md-12 heading-section ftco-animate">
-                                <span class="subheading">My Intro</span>
-                                <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">About Me</h2>
-                                <p>
-                                    Hello! I am a full-stack developer with 3 years of experience in designing and implementing web applications. My passion for technology drives me to deliver high-quality solutions that meet and exceed client expectations.
+/* ---------- CONTACT FORM (mailto fallback, no backend) ---------- */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('cName').value;
+  const email = document.getElementById('cEmail').value;
+  const subject = document.getElementById('cSubject').value;
+  const message = document.getElementById('cMessage').value;
+  const body = `From: ${name} (${email})%0D%0A%0D%0A${encodeURIComponent(message)}`;
+  window.location.href = `mailto:maheshchitturi222@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+});
 
-                                    Throughout my career, I have honed my skills in both front-end and back-end development, allowing me to understand and tackle the challenges that arise at every stage of a project. I thrive on collaborating with clients to understand their needs and delivering solutions that enhance their business operations..
-                                </p>
+/* ---------- REVEAL ON SCROLL ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('in'); });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-                                <ul class="about-info mt-4 px-md-0 px-2">
-                                    <li class="d-flex"><span>Name:</span> <span>Mahesh Chitturi</span></li>
-                                    <li class="d-flex"><span>Date of birth:</span> <span>February 15, 2002</span></li>
-                                    <li class="d-flex"><span>Address:</span> <span>East Godavari , AP</span></li>
-
-                                    <li class="d-flex"><span>Gmail:</span> <span>maheshchitturi222@gmail.com</span></li>
-                                    <li class="d-flex"><span>Phone: </span> <span>+91 9347804678</span></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="my-interest d-lg-flex w-100">
-                                    <div class="interest-wrap d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="fas fa-headphones-alt"></span>
-                                        </div>
-                                        <div class="text">Music</div>
-                                    </div>
-                                    <div class="interest-wrap d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="fas fa-map-marked-alt"></span>
-                                        </div>
-                                        <div class="text">Travel</div>
-                                    </div>
-                                    <div class="interest-wrap d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="fa fa-film"></span>
-                                        </div>
-                                        <div class="text">Movie</div>
-                                    </div>
-                                    <div class="interest-wrap d-flex align-items-center">
-                                        <div class="icon d-flex align-items-center justify-content-center">
-                                            <span class="fas fa-basketball-ball"></span>
-                                        </div>
-                                        <div class="text">Sports</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ftco-section  bg-light" id="services-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-                    <span class="subheading">Skills</span>
-                    <h2 class="mb-4">My Skills</h2>
-                    <p style="color:black">
-                        Detail-oriented full-stack developer proficient in delivering Responsive web applications using technologies such as HTML, CSS, JavaScript, BootStrap, Java,Jdbc, C#, Asp.Net, and SQL, committed to excellence and customer satisfaction."
-
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon d-flex align-items-center justify-content-center"><span class="fab fa-html5"></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">HTML</h2>
-                            <h4 class="heading mb-3">4.7/5</h4>
-
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fab fa-css3-alt  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">CSS</h2>
-                            <h4 class="heading mb-3">4.2/5</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fab fa-js  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">JAVASCRIPT</h2>
-                            <h4 class="heading mb-3">3.5/5</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fab fa-bootstrap  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">BOOTSTRAP</h2>
-                            <h4 class="heading mb-3">3.6/5</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fab fa-java  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">JAVA</h2>
-                            <h4 class="heading mb-3">4.4/5</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fas fa-server  "></span></div>
-
-                        <div class="media-body">
-                            <h2 class="heading mb-3">ASP .NET</h2>
-                            <h4 class="heading mb-3">4.2/5</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fas fa-code  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">C#</h2>
-                            <h4 class="heading mb-3">4.2/5</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
-                        <div class="icon shadow d-flex align-items-center justify-content-center"><span class="fas fa-database  "></span></div>
-                        <div class="media-body">
-                            <h2 class="heading mb-3">SQL</h2>
-                            <h4 class="heading mb-3">4.5</h4>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="ftco-section ftco-project" id="projects-section">
-        <div class="container-fluid px-md-4">
-            <div class="row justify-content-center pb-5">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Accomplishments</span>
-                    <h2 class="mb-4">My  Projects</h2>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(PRoject1Dailymeeting.jpg); ">
-                        <div class="overlay"></div>
-
-                        <div class="text text-center p-4">
-                            <h3 style="color:white"> Digitalization  Daily Meeting </h3><hr />
-                            <span style="color:#fffdb2">Here The  Project Shows  Every Day Updates On The Industry </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(tmSpROJECT4.jpg); ">
-
-
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Tender Management System </a></h3>
-                            <span style="color:#fffdb2"> The TMS Portal Facilitating Approval Process for CPCL Tenders on  the Goverment   E-MARKETPLACE(GEM)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(PEttyProject3.jpg);">
-
-
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Electrical E-Approval</a></h3>
-                            <span style="color:#fffdb2c">It's  Emergency Approval - Immediate Requirment of goods  for the Company  </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-4">
-                    <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(WorkShopProject5.jpg);">
-
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">WorkShop</a></h3>
-                            <span style="color:#fffdb2">This Projects Shows about Motors, Bearing, Fans Ect... & If problem occurs  on the component ,it will shifting to workshop area with respective electrical in-charge</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(WalkieTalkieProject5.jpg);">
-
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Electrical Service Hub </a></h3>
-                            <span style="color:#fffdb2">ESH Dashboard  Shows All Electrical Gadget such as WalkieTalkie, Air Conditioner, TelePhone For Electrical Services</span>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <section class="ftco-section contact-section ftco-no-pb bg-light" id="contact-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <span class="subheading">Contact Me</span>
-                    <h2 class="mb-4">Have a Project?</h2>
-
-                </div>
-            </div>
-
-            <div class="row block-9">
-                <div class="col-md-8">
-                    <form action="#" class="bg-light p-4 p-md-5 contact-form">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Email">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="col-md-4 d-flex pl-md-5">
-                    <div class="row">
-                        <div class="dbox w-100 d-flex">
-                            <div class="icon d-flex align-items-center justify-content-center">
-                                <span class="fa fa-map-marker"></span>
-                            </div>
-                            <div class="text">
-                                <p><span>Address:</span> East Godavari, AP</p>
-                            </div>
-                        </div>
-                        <div class="dbox w-100 d-flex">
-                            <div class="icon d-flex align-items-center justify-content-center">
-                                <span class="fa fa-phone"></span>
-                            </div>
-                            <div class="text">
-                                <p><span>Phone:</span> <a href="tel://1234567920">+91 9347804678</p>
-                            </div>
-                        </div>
-                        <div class="dbox w-50 d-flex">
-                            <div class="icon d-flex align-items-center justify-content-center">
-                                <span class="fa fa-paper-plane"></span>
-                            </div>
-                            <div class="text">
-                                <p><span>Gmail:</span> <a href="maheshchitturi222@gmail.com">maheshchitturi222@gmail.com</a></p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-  
-
-
-    <script src="jquery.min.js"></script>
-    <script src="jquery-migrate-3.0.1.min.js"></script>
-    <script src="popper.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="jquery.easing.1.3.js"></script>
-    <script src="jquery.waypoints.min.js"></script>
-    <script src="jquery.stellar.min.js"></script>
-    <script src="owl.carousel.min.js"></script>
-    <script src="jquery.magnific-popup.min.js"></script>
-    <script src="jquery.animateNumber.min.js"></script>
-    <script src="scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="google-map.js"></script>
-
-    <script src="main.js"></script>
-
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
-
