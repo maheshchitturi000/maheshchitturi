@@ -81,6 +81,11 @@
   }
 
   /* HERO */
+  .profile-chip{display:inline-flex; align-items:center; gap:12px; background:var(--panel); border:1px solid var(--line); border-radius:50px; padding:6px 18px 6px 6px; margin-bottom:22px;}
+  .profile-chip img{width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid var(--accent);}
+  .profile-chip strong{display:block; font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.2;}
+  .profile-chip span{display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted);}
+
   .hero{padding:90px 0 70px;}
   .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
   @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
@@ -160,7 +165,7 @@
   .project-media{height:170px; background:var(--panel-2); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;}
   .project-media img{width:100%; height:100%; object-fit:cover;}
   .project-media.code{padding:16px; align-items:flex-start; justify-content:flex-start;}
-  .project-media.code pre{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--accent); line-height:1.7; white-space:pre-wrap; opacity:.9;}
+  .project-media.code pre{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--accent); line-height:1.7; white-space:pre-wrap; opacity:.9; margin-top:32px;}
   .tag-float{position:absolute; top:12px; left:12px; background:rgba(10,14,19,0.85); border:1px solid var(--accent-dim); color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:10px; padding:3px 9px; border-radius:20px; text-transform:uppercase; letter-spacing:.06em;}
   .project-body{padding:20px;}
   .project-body h3{font-size:16px; margin-bottom:8px;}
@@ -215,6 +220,13 @@
 <section id="home" class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
+      <div class="profile-chip">
+        <img src="Myimage11.png" alt="Mahesh Chitturi" onerror="this.onerror=null; this.src='AnimeDeveloper.jpg';">
+        <div>
+          <strong>Mahesh Chitturi</strong>
+          <span>Full Stack Engineer</span>
+        </div>
+      </div>
       <div class="eyebrow">Available for new projects</div>
       <h1>Full Stack Engineer building<br><span class="accent">connected systems</span>, not just apps.</h1>
       <p class="lead">3.5+ years designing and shipping full-stack solutions with .NET Core, Angular, and Azure — with a focus on wiring platforms together: payments, accounting, and CRM data flowing in real time.</p>
